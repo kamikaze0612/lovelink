@@ -1,13 +1,24 @@
 "use client";
-import { usePathname, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { useGlobalTransition } from "@/hooks/use_global_transition";
+import { useSearchQuery } from "@/utils/use_search_query";
 
 const Homepage: React.FC = () => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { searchQuery, setSearchQuery } = useSearchQuery();
+  const { isPending, startTransition } = useGlobalTransition();
 
-  console.log(pathname);
-  console.log(Object.fromEntries(searchParams));
-  console.log(searchParams.toString());
-  return <div className="bg-background text-foreground">Homepage</div>;
+  const handleClick = () => {
+    startTransition(() => {
+      setSearchQuery({ hello: "test" });
+    });
+  };
+
+  return (
+    <div className="bg-background text-foreground">
+      <Button onClick={handleClick} disabled={isPending}>
+        Click me to start transition
+      </Button>
+    </div>
+  );
 };
 export default Homepage;
