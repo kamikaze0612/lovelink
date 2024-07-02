@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import type { FormStatus } from "react-dom";
 
-import { FormState } from "@/schemas/form_state_schema";
+import { FormState } from "@/schemas/form_state";
 
 type Props = {
   action: React.ServerAction;

@@ -10,7 +10,7 @@ export const login: React.ServerAction = async () => {
     if (error instanceof AuthError) {
       return {
         success: false,
-        error: "Cannot log in",
+        error: "LOGIN_ERROR",
       };
     }
 

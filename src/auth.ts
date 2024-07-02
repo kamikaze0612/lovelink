@@ -1,7 +1,10 @@
+import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { eq } from "drizzle-orm";
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
+
 import { db } from "./database";
+import { users } from "./database/schemas/users";
 
 export const {
   handlers: { GET, POST },
@@ -16,6 +19,14 @@ export const {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  events: {
+    linkAccount: async ({ user }) => {
+      await db
+        .update(users)
+        .set({ emailVerified: new Date() })
+        .where(eq(users.id, user.id!));
+    },
+  },
   session: {
     strategy: "jwt",
   },
