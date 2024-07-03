@@ -6,6 +6,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LoginForm } from "./login_form";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const LoginCard: React.FC = () => {
   return (
@@ -13,8 +15,11 @@ export const LoginCard: React.FC = () => {
       <CardHeader className="text-center">
         <CardTitle className="text-4xl">Welcome, lovebird!</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="text-center">
         <LoginForm />
+        <Button variant="link" asChild className="text-base">
+          <Link href="/">&larr; Go back to home page</Link>
+        </Button>
       </CardContent>
       <CardFooter>
         <p className="w-full text-center text-zinc-500">
