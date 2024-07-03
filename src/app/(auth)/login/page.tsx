@@ -1,9 +1,9 @@
-import { LoginForm } from "./login_form";
+import { LoginCard } from "./login_card";
 
 const LoginPage: React.Page = () => {
   return (
-    <main className="min-h-screen flex justify-center items-center">
-      <LoginForm />
+    <main className="flex min-h-screen items-center justify-center">
+      <LoginCard />
     </main>
   );
 };

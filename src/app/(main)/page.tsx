@@ -1,14 +1,17 @@
 import { auth } from "@/auth";
-
-import { LogoutButton } from "./logout_button";
+import { Hero } from "@/components/hero";
+import { Header } from "@/components/layout/header";
 
 const Homepage: React.Page = async () => {
   const user = await auth();
 
   return (
-    <div className="bg-background text-foreground">
-      <h1>Hello</h1>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+      </main>
+    </>
   );
 };
 export default Homepage;

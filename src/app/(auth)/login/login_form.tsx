@@ -12,10 +12,10 @@ export const LoginForm: React.FC = () => {
       action={login}
       render={({ status, state }) => {
         return (
-          <fieldset className="w-[480px] bg-slate-100 rounded-lg p-6">
-            <Button className="w-full">
+          <fieldset className="w-[480px] rounded-lg p-6">
+            <Button className="flex w-full items-center gap-2.5">
               <FaGoogle />
-              Log In with Google
+              Log in with Google account
             </Button>
           </fieldset>
         );
