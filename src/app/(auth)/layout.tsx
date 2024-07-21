@@ -4,7 +4,7 @@ const AuthLayout: React.Layout = ({ children }) => {
       {children}
       <div className="p-2">
         <div className="flex h-full flex-col items-center justify-center rounded-3xl bg-[url(/couple.jpg)] bg-cover bg-center">
-          <h2 className="text-brand-foreground text-7xl font-bold">
+          <h2 className="text-7xl font-bold text-brand-foreground">
             Hello there
           </h2>
           <p className="text-medium text-brand-foreground">
